@@ -1,26 +1,38 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import DataTable from "react-data-table-component";
+import data from "./data.json";
 
 function App() {
+  const columns = [
+    { name: "Name", selector: "name", sortable: true },
+    {
+      name: "Phone",
+      selector: "phone",
+      sortable: true,
+    },
+    // firstdata
+    {
+      name: "Email",
+      selector: "email",
+      sortable: true,
+    },
+    {
+      name: "DOB",
+      selector: "dob",
+    },
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        {/* how are you */}
-        {/* my name is atiq */}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>DataTable in React</h3>
+      <DataTable
+        title="Employee"
+        columns={columns}
+        data={data}
+        pagination
+        highlightOnhover
+        style={{ color: "red" }}
+      />
     </div>
   );
 }
